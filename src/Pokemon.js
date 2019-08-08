@@ -6,7 +6,6 @@ export default class Pokemon extends Component {
     super()
     this.state = {
     };
-
   }
 
   render () {
