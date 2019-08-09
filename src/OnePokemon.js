@@ -25,7 +25,7 @@ export default class OnePokemon extends Component {
 
     return (
       <div id='one-pokemon'>
-        <h2>{this.props.pokemon.name}</h2>
+        <h2 className='uppercase'>{this.props.pokemon.name}</h2>
         <h4>Pokemon Id: {this.props.id}</h4>
         <img alt='pokemon' src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png`}></img>
       </div>

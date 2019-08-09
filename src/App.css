@@ -23,6 +23,24 @@
   color: #61dafb;
 }
 
+.pokemon-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.button-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 50px;
+}
+
+.uppercase {
+  text-transform: uppercase;
+  color: red;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

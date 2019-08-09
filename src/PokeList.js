@@ -64,14 +64,20 @@ export default class PokeList extends Component {
     console.log('PokeList', this.state)
 
     return (
-      <div id='single-pokemon'>
-        <div id='pokemon-card'>
+      <div className='single-pokemon'>
+        <div className='pokemon-card'>
           {
             paginate.map((pokemon, index) => <OnePokemon id={index+1} key={pokemon.name} pokemon={pokemon} />)
           }
         </div>
-        <button onClick={this.handleBack}>Back</button>
-        <button onClick={this.handleForward}>Forward</button>
+        <div className='button-box'>
+          <div className='buttons'>
+            <button onClick={this.handleBack}>Back</button>
+          </div>
+          <div className='buttons'>
+            <button onClick={this.handleForward}>Forward</button>
+          </div>
+        </div>
       </div>
     )
   }

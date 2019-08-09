@@ -6,13 +6,14 @@ export default class Pokemon extends Component {
     super()
     this.state = {
     };
+
   }
 
   render () {
 
     return (
-      <div id='all-pokemon'>
-        <div id='pokeList'>
+      <div className='all-pokemon'>
+        <div className='pokeList'>
           <PokeList />
         </div>
       </div>
