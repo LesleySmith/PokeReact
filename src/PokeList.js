@@ -36,26 +36,26 @@ export default class PokeList extends Component {
     console.log('PAGINATE', this.state.paginate)
   }
 
-  handleBack(e) {
-    e.preventDefault();
-    if(this.state.offset > 0) {
+  handleBack() {
+    console.log('was clicked')
+    if(this.state.offset >= 0) {
       this.setState({
          offset: this.state.offset - 3,
          top: this.state.top - 3
-        })
-      this.paginate(this.state.pokemon)
+        }, () => { this.paginate(this.state.pokemon) });
     }
+    console.log('click state', this.state.paginate)
   }
 
-  handleForward(e) {
-    e.preventDefault();
-    if(!this.state.top >= 150) {
+  handleForward() {
+    console.log('was clicked')
+    if(this.state.top !== 150) {
       this.setState({
         offset: this.state.offset + 3,
         top: this.state.top + 3,
-       })
-       this.paginate(this.state.pokemon)
+       }, () => { this.paginate(this.state.pokemon) });
     }
+    console.log('click state', this.state.paginate)
   }
 
   render() {
@@ -67,7 +67,7 @@ export default class PokeList extends Component {
       <div className='single-pokemon'>
         <div className='pokemon-card'>
           {
-            paginate.map((pokemon, index) => <OnePokemon id={index+1} key={pokemon.name} pokemon={pokemon} />)
+            paginate.map((pokemon, index) => <OnePokemon id={index+1} key={pokemon.name} pokemon={this.state.pokemon} singlePoke={pokemon} />)
           }
         </div>
         <div className='button-box'>

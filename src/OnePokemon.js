@@ -15,19 +15,45 @@ export default class OnePokemon extends Component {
     fetch(request)
     .then(results => results.json())
     .then(data => {
-      this.setState({ singlePokemon: data })
+      this.setState({ singlePokemon: data }, () => {this.sliceTheId(this.props.singlePoke.url) });
     })
   }
 
+  // componentDidUpdate () {
+  //   this.sliceTheId(this.props.singlePoke.url);
+  // }
+
+  sliceTheId(url) {
+
+    let count = 0;
+    let theId = '';
+
+    for(let i = url.length - 1; i >= 0; i--) {
+      if(count === 1 && url[i] === '/') {
+        let theSlice = url.slice(i + 1, url.length-1);
+        theId = theSlice;
+
+        console.log(theId);
+        this.setState({ pokeId: theId });
+
+        return theId;
+
+      } else if(url[i] === '/') {
+        count++;
+      }
+    }
+  }
+
   render () {
-    let pokemonId = this.props.id
+    console.log('single poke props', this.state)
+
     // console.log('PROPS',this.props,'STATE', this.state)
 
     return (
       <div id='one-pokemon'>
-        <h2 className='uppercase'>{this.props.pokemon.name}</h2>
-        <h4>Pokemon Id: {this.props.id}</h4>
-        <img alt='pokemon' src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png`}></img>
+        <h2 className='uppercase'>{this.props.singlePoke.name}</h2>
+        <h4>Pokemon Id: {this.state.pokeId}</h4>
+        <img alt='pokemon' src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${this.state.pokeId}.png`}></img>
       </div>
     )
   }
