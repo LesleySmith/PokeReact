@@ -19,10 +19,6 @@ export default class OnePokemon extends Component {
     })
   }
 
-  // componentDidUpdate () {
-  //   this.sliceTheId(this.props.singlePoke.url);
-  // }
-
   sliceTheId(url) {
 
     let count = 0;
