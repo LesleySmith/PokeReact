@@ -36,7 +36,7 @@ export default class PokeList extends Component {
   }
 
   handleBack() {
-    if(this.state.offset >= 0) {
+    if(this.state.offset > 0) {
       this.setState({
          offset: this.state.offset - 3,
          top: this.state.top - 3
@@ -45,7 +45,7 @@ export default class PokeList extends Component {
   }
 
   handleForward() {
-    if(this.state.top !== 150) {
+    if(this.state.top < 149) {
       this.setState({
         offset: this.state.offset + 3,
         top: this.state.top + 3,
