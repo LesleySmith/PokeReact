@@ -16,7 +16,7 @@ export default class PokeList extends Component {
   }
 
   componentDidMount() {
-    fetch(`https://pokeapi.co/api/v2/pokemon?offset=0&limit=20/`)
+    fetch(`https://pokeapi.co/api/v2/pokemon?offset=0&limit=150/`)
     .then(results => {
       return results.json();
     }).then(data => {
@@ -33,35 +33,28 @@ export default class PokeList extends Component {
       newPokeSet.push(pokemon[i]);
     }
     await this.setState({ paginate: newPokeSet });
-    console.log('PAGINATE', this.state.paginate)
   }
 
   handleBack() {
-    console.log('was clicked')
     if(this.state.offset >= 0) {
       this.setState({
          offset: this.state.offset - 3,
          top: this.state.top - 3
         }, () => { this.paginate(this.state.pokemon) });
     }
-    console.log('click state', this.state.paginate)
   }
 
   handleForward() {
-    console.log('was clicked')
     if(this.state.top !== 150) {
       this.setState({
         offset: this.state.offset + 3,
         top: this.state.top + 3,
        }, () => { this.paginate(this.state.pokemon) });
     }
-    console.log('click state', this.state.paginate)
   }
 
   render() {
-    // const pokemon = this.state.pokemon
     const paginate = this.state.paginate
-    console.log('PokeList', this.state)
 
     return (
       <div className='single-pokemon'>

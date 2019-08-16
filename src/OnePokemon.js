@@ -20,6 +20,7 @@ export default class OnePokemon extends Component {
   }
 
   sliceTheId(url) {
+    // Helper function to grab correct pokemon ID/Sprite from URL
 
     let count = 0;
     let theId = '';
@@ -41,9 +42,6 @@ export default class OnePokemon extends Component {
   }
 
   render () {
-    console.log('single poke props', this.state)
-
-    // console.log('PROPS',this.props,'STATE', this.state)
 
     return (
       <div id='one-pokemon'>
